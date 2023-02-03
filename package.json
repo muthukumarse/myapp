@@ -1,0 +1,14 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Muthukumar Selvarasu <muthukumar.se@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "fs": "0.0.1-security"
+  }
+}
