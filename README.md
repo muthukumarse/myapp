@@ -6,8 +6,8 @@
   npm start
   ```
 - application should work over browser 
-  - Home page - `http://localhost:3000/`
-  - Version page - `http://localhost:3000/version`
+  - Home page - `http://localhost:8080/`
+  - Version page - `http://localhost:8080/version`
 
   ![local-dev](./evidence/local-dev.png)
 
