@@ -15,11 +15,6 @@
 
   ![version-page](./evidence/rest-version.png)
 
-- Note: on CI
-  - version - will picked dynamically on Docker build from [package.json](./package.json) "version" 
-  - build_sha - will be passed dynamically on Docker build through BUILD_SHA via build-arg variable
-
-
 
 ## How to build the Docker Image locally to test
 - Assume that you have Docker installed
@@ -37,6 +32,8 @@
 
 
 ## How to push Docker Image to DockerHub
+- version - will picked dynamically on Docker build from [package.json](./package.json) "version" 
+- build_sha - will be passed dynamically on Docker build through BUILD_SHA via build-arg variable
 - Used github Actions to build and push Docker Image [CI Pipeline](./.github/workflows/docker-image.yml)
 - You may upload this code into your own github repo and the proceed further
   - ensure that setup these 2 secrets to build successfully
