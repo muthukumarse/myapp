@@ -16,18 +16,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Build Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          tags: "${{ env.DOCKERHUB_USERNAME }}/myapp:${{ github.sha }}"
+      
+      - name: Get commit hash
+        run: echo "::set-env name=BUILD_SHA::$(git rev-parse HEAD)"
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
           username: "${{ env.DOCKERHUB_USERNAME }}"
           password: "${{ env.DOCKERHUB_PASSWORD }}"
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: "${{ env.DOCKERHUB_USERNAME }}/myapp:${{ github.sha }}"
+          build-arg: BUILD_SHA=${{ env.BUILD_SHA }}
+
 
       - name: Push Docker image to DockerHub
         uses: docker/build-push-action@v2
