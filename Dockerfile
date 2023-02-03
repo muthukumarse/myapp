@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# build sha
+# build sha - can be shorten but leaving it as it is, since it jsut testing.
 ARG BUILD_SHA=in-development
 RUN echo -n $BUILD_SHA | tr -d '\n' > build_sha
 

@@ -14,6 +14,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/version', (req, res) => {
+  // reading the content of the file purposefully to get memory leak and check over monitoring.
+  // TODO rading the content should be done one time - :)
   var build_sha = fs.readFileSync('./build_sha','utf8', (err, build_sha) => {
     if (err) {
       console.error(err);

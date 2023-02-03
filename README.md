@@ -23,10 +23,17 @@
 
 ## How to push Docker Image to DockerHub
 - Used github Actions to build and push Docker Image [CI Pipeline](./.github/workflows/docker-image.yml)
+- You may upload this code into your own github repo and the proceed further
+  - ensure that setup these 2 secrets to build successfully
+    - `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD`
 - To test the CI
   - Update `version` in [package.json](./package.json)
   - Push the changes (as of now I left to build directly in main branch)
-  - CI will trigger the CI and push the image to my [dockerHub](https://hub.docker.com/repository/docker/muthukumarse/myapp/general) 
+  - CI will trigger the CI and push the image to my [dockerHub](https://hub.docker.com/repository/docker/[muthukumarse]/myapp/general) 
   - get the last pushed image into local by
-    - `docker pull muthukumarse/myapp:xxx`
-    - `docker run -p 8080:8080 muthukumarse/myapp:xxx`
+    - `docker pull [muthukumarse]/myapp:xxx`
+    - `docker run -p 8080:8080 [muthukumarse]/myapp:xxx`
+    - Goto Version page - `http://localhost:3000/version`
+      - you should see the `version` which comes from [package.json](./package.json)
+      - you should see build_sha which comes from last commit-sha from main branch
+
