@@ -41,7 +41,7 @@
 - To test the CI
   - Update `version` in [package.json](./package.json)
   - Push the changes (as of now I left to build directly in main branch)
-  - CI will trigger the CI and push the image to my [dockerHub](https://hub.docker.com/repository/docker/[muthukumarse]/myapp/general) 
+  - CI pipeline will trigger, then build & push the image to my [dockerHub](https://hub.docker.com/repository/docker/[muthukumarse]/myapp/general) 
   - get the last pushed image into local by
     - `docker pull [muthukumarse]/myapp:xxx`
     - `docker run -p 8080:8080 [muthukumarse]/myapp:xxx`
