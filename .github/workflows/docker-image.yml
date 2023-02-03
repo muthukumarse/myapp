@@ -6,7 +6,6 @@ on:
       - main
 
 env:
-  BUILD_SHA: ${{ env.GITHUB_SHA }}
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
 
 jobs:
@@ -21,12 +20,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          tags: "${{ env.DOCKERHUB_USERNAME }}/image:${{ env.BUILD_SHA }}"
+          tags: "${{ env.DOCKERHUB_USERNAME }}/image:${{ github.sha }}"
           push: true
 
       - name: Test Docker image
         uses: docker/action-push@v1
         with:
           context: .
-          tags: "${{ env.DOCKERHUB_USERNAME }}/image:${{ env.BUILD_SHA }}"
+          tags: "${{ env.DOCKERHUB_USERNAME }}/image:${{ github.sha }}"
           push: true
