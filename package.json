@@ -1,6 +1,6 @@
 {
   "name": "myapp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js on Docker",
   "author": "Muthukumar Selvarasu <muthukumar.se@gmail.com>",
   "main": "server.js",

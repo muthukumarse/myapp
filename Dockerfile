@@ -19,6 +19,7 @@ COPY . .
 ARG BUILD_SHA=in-development
 RUN echo -n $BUILD_SHA | tr -d '\n' > build_sha
 
+
 # App version
 RUN cat package.json | grep "version" | awk '{ print $2 }' | tr -d ',"\n' > version
 
