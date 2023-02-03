@@ -31,6 +31,6 @@ jobs:
           password: "${{ env.DOCKERHUB_PASSWORD }}"
 
       - name: Push Docker image to DockerHub
-        uses: docker/push-action@v1
+        uses: docker/push-action@v2
         with:
           tags: "${{ env.DOCKERHUB_USERNAME }}/image:${{ github.sha }}"
