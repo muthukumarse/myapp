@@ -51,4 +51,11 @@
     - Goto Version page - `http://localhost:8080/version`
       - you should see the `version` which comes from [package.json](./package.json)
       - you should see build_sha which comes from last commit-sha from main branch
+      ![git-update-push](./evidence/git-update-push.png) 
+      ![github-action-build-status](./evidence/github-action-build-status.png) 
+      ![github-action-build-steps](./evidence/github-action-build-steps.png) 
+      ![github-action-build-push-image-tag](./evidence/github-action-build-push-image-tag.png) 
+      ![docker-hub-pushed-image-tag](./evidence/docker-hub-pushed-image-tag.png) 
+      ![docker-pull-latest-iamge-and-run](./evidence/docker-pull-latest-iamge-and-run.png) 
+      ![docker-pull-latest-iamge-and-run-output](./evidence/docker-pull-latest-iamge-and-run-output.png) 
 
