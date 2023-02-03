@@ -21,7 +21,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          push: true
           tags: "${{ env.DOCKERHUB_USERNAME }}/image:${{ github.sha }}"
 
       - name: Login to DockerHub
@@ -33,4 +32,4 @@ jobs:
       - name: Push Docker image to DockerHub
         uses: docker/build-push-action@v2
         with:
-          tags: "${{ env.DOCKERHUB_USERNAME }}/image:${{ github.sha }}"
+          tags: "${{ env.DOCKERHUB_USERNAME }}/myapp:${{ github.sha }}"
