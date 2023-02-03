@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: CI
 
 on:
   push:
@@ -6,20 +6,26 @@ on:
       - main
 
 env:
-  DOCKER_REGISTRY: muthukumarse
-  DOCKER_IMAGE: myapp
+  BUILD_SHA: ${{ env.GITHUB_SHA }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Build Docker Image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE }}:${{ env.BUILD_SHA }}
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          tags: "repo/image:${{ env.BUILD_SHA }}"
+          push: true
+
+      - name: Test Docker image
+        uses: docker/action-push@v1
+        with:
+          context: .
+          tags: "muthukumarse/myapp:${{ env.BUILD_SHA }}"
+          push: true
