@@ -20,7 +20,7 @@ jobs:
       - name: Get commit hash
         shell: bash
         run: |
-          echo "BUILD_SHA=${LAST_COMMIT_SHA:0:7}"
+          echo "LAST_COMMIT_SHA=${GITHUB_SHA}" >> ${GITHUB_ENV}
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
