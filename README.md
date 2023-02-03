@@ -31,7 +31,7 @@
   ![local-docker-build-run-with-update-output](./evidence/local-docker-build-run-with-update-output.png)
 
 
-## How to push Docker Image to DockerHub
+## Build Docker Image  and push to DockerHub over CI Pipeline (GitHub Action)
 - version - will picked dynamically on Docker build from [package.json](./package.json) "version" 
 - build_sha - will be passed dynamically on Docker build through BUILD_SHA via build-arg variable
 - Used github Actions to build and push Docker Image [CI Pipeline](./.github/workflows/docker-image.yml)
