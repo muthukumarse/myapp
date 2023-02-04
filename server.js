@@ -13,21 +13,20 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+var build_sha = fs.readFileSync('./build_sha','utf8', (err, build_sha) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+});
+var version = fs.readFileSync('./version','utf8', (err, version) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+});
+
 app.get('/version', (req, res) => {
-  // reading the content of the file purposefully to get memory leak and check over monitoring.
-  // TODO rading the content should be done one time - :)
-  var build_sha = fs.readFileSync('./build_sha','utf8', (err, build_sha) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-  });
-  var version = fs.readFileSync('./version','utf8', (err, version) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-  });
   const response = {
     "version": version,
     "build_sha": build_sha,
