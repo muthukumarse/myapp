@@ -1,7 +1,7 @@
 {
   "name": "myapp",
   "version": "1.0.0",
-  "description": "Node.js on Docker",
+  "description": "Node.js REST APP",
   "author": "Muthukumar Selvarasu <muthukumar.se@gmail.com>",
   "main": "server.js",
   "scripts": {
