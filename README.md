@@ -15,6 +15,9 @@
 
   ![version-page](./evidence/rest-version.png)
 
+- Added standard Mocha unit Test for REST endpoints, to test use
+  - `npm test`
+  ![unit-test](./evidence/myapp-unit-test.png)
 
 ## How to build the Docker Image locally to test
 - Assume that you have Docker installed
